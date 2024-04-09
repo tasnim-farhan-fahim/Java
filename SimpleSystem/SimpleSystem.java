@@ -9,21 +9,20 @@ public class SimpleSystem {
         System.out.println("Welcome to the log-in pannel");
         System.out.println("Choice log-in option\n 1. Admin \n 2. User");
         int option = sc.nextInt();
-        if (option==1) {
-            logInSystem = new Admin("g",5);
+        if (option == 1) {
+            logInSystem = new Admin();
             logInSystem.logIn();
             logInSystem.accountCheck();
 
-        }
-        else if (option==2) {
-            logInSystem = new User("g",5);
+        } else if (option == 2) {
+            logInSystem = new User();
             logInSystem.logIn();
             logInSystem.accountCheck();
-            
+
+        } else {
+            System.out.println("Wrong option!\n Choose between 1 or 2");
         }
-        else{
-            System.out.println("Wrong option!\n Chose between 1 or 2");
-        }
+
 
         sc.close();
     }

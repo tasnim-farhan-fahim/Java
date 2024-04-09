@@ -4,35 +4,38 @@ public class LogInSystem{
     Scanner sc = new Scanner(System.in);
     int password;
     String userName;
-    ArrayList<User> userList = new ArrayList<>();
-    User user1 = new User("fahim",1234);
-    User user2 = new User("mahim",1111);
-    adminList.add(admin1);
-    LogInSystem(String userName, int password){
-        this.userName=userName;
-        this.password=password;
+     ArrayList<UserList> userList = new ArrayList<>();
+    
+
+
+
+    public LogInSystem(){
+        UserList user1 = new UserList("mike",2222);
+        UserList user2 = new UserList("trevor",1111);
+        userList.add(user1);
+        userList.add(user2);
 
     }
-    void accountCheck(){
-        for (LogInSystem lis : userList) {
+    void accountCheck() {
+        boolean found = false;
+        for (UserList user : userList) {
             System.out.println("Enter your username:");
-            String userNameCheck=sc.nextLine();
+            String userNameCheck = sc.nextLine();
 
-            if (lis.userName==userNameCheck){
+            if (user.getUserName().equals(userNameCheck)) {
+                found = true;
                 System.out.println("Username found.");
-                int passwordCheck=0;
                 System.out.println("Enter password:");
+                int passwordCheck = sc.nextInt();
                 sc.nextInt();
-                if (lis.password==passwordCheck) {
+                if (user.getPassword() == passwordCheck) {
                     System.out.println("System logged-in");
                     System.out.println("Welcome to the system hub.");
-                    
+
+                } else {
+                    System.out.println("Password is incorrect!");
                 }
-                else{
-                    System.out.println("Passward is incorrect!");
-                }
-            }
-            else{
+            } else {
                 System.out.println("Username is incorrect!");
             }
         }
